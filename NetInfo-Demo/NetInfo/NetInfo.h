@@ -12,11 +12,11 @@
 
 @interface NetInfo : NSObject
 //获取网卡信息列表
-+ (NSMutableDictionary *) getInterfaceList;
++ (NSMutableDictionary *)getInterfaceList;
 //获取某网卡地址
 + (NSString *) localAddressForInterface:(NSString *)interface;
 //获取IP地址
-+ (NSString *) getIPAddress;
++ (NSString *)getIPAddress;
 //是否越狱
 + (BOOL)isJailbroken;
 //网卡mac地址获取
@@ -29,4 +29,6 @@
 + (id)fetchSSIDInfo;
 
 + (NSString *)currentWifiSSID;
+//根据域名获取ip
++(NSString*)getIPAddressByDomain:(NSString*)domain;
 @end

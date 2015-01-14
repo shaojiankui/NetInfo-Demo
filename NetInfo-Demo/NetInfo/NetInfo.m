@@ -16,12 +16,14 @@
 #include <net/if_dl.h>
 #include <ifaddrs.h>
 #include <mach/mach.h>
+
+#include <netdb.h>
 @implementation NetInfo
-+ (NSString *)getIPAddress {
++ (NSString *)getIPAddress{
     return [self localAddressForInterface:@"en0"];
 }
 
-+ (NSMutableDictionary *) getInterfaceList
++ (NSMutableDictionary *)getInterfaceList
 {
     NSMutableArray *arrayOfAllInterfaces = [NSMutableArray array];
     NSMutableDictionary *dictOfAllInterfaces = [NSMutableDictionary dictionary];
@@ -228,6 +230,28 @@
     [result setObject:[NSString stringWithFormat:@"fetch %@", file] forKey:@"description"];
     
     return result;
+}
+
++(NSString*)getIPAddressByDomain:(NSString*)domain
+{
+    const char *domainChar = [domain UTF8String];
+    struct hostent *phot ;
+    @try
+    {
+        phot = gethostbyname(domainChar);
+    }
+    @catch (NSException * e)
+    {
+        return nil;
+    }
+    
+    struct in_addr ip_addr;
+    memcpy(&ip_addr,phot->h_addr_list[0],4);///h_addr_list[0]里4个字节,每个字节8位，此处为一个数组，一个域名对应多个ip地址或者本地时一个机器有多个网卡
+    
+    char ip[20] = {0};
+    inet_ntop(AF_INET, &ip_addr, ip, sizeof(ip));
+
+    return [NSString stringWithUTF8String:ip];
 }
 
 @end
