@@ -418,6 +418,7 @@
 				A29C5F401A52790A009052D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A29C5F411A52790A009052D9 /* Build configuration list for PBXNativeTarget "NetInfo-DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +427,7 @@
 				A29C5F431A52790A009052D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,6 +17,8 @@
 + (NSString *) localAddressForInterface:(NSString *)interface;
 //获取IP地址
 + (NSString *)getIPAddress;
+//网关地址
++ (NSString *)getGatewayIPAddress;
 //是否越狱
 + (BOOL)isJailbroken;
 //网卡mac地址获取

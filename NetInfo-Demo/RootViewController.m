@@ -20,6 +20,8 @@
     [self printInterfaceList];
     
     NSLog(@"getIPAddressByDomain:%@", [NetInfo getIPAddressByDomain:@"www.github.com"]);
+    NSLog(@"getGatewayIPAddress:%@", [NetInfo getGatewayIPAddress]);
+
     
 }
 
